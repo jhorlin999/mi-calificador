@@ -10,10 +10,10 @@ if contraseña == "ALFARO":
     
     if st.button("Verificar"):
         if nota <= 10:
-            st.error("Estas desaprobado")
+            st.error("ni pa eso")
         elif 11 <= nota <= 13:
-            st.warning("Estas regular")
+            st.warning("para dar pena siquiera")
         elif 14 <= nota <= 17:
-            st.info("Estas bueno")
+            st.info("a nada")
         else:
-            st.success("Estas excelente")
+            st.success("alomenos ahí, apruebas")
