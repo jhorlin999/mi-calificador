@@ -1,5 +1,25 @@
 import streamlit as st
 
+# 1. Configuración de página (Oculta el menú desplegable predeterminado)
+st.set_page_config(
+    page_title="Sistema de Calificaciones",
+    initial_sidebar_state="collapsed",
+)
+
+# 2. Código CSS para ocultar TODO (Botón Share, icono GitHub, Footer y Header)
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .stAppDeployButton {display: none;}
+            [data-testid="stStatusWidget"] {display: none;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+# --- ABAJO SIGUE TU CÓDIGO NORMAL ---
+
 st.title("Sistema de Calificaciones")
 
 contraseña = st.text_input("Ingresa la contraseña:", type="password")
@@ -10,10 +30,10 @@ if contraseña == "ALFARO":
     
     if st.button("Verificar"):
         if nota <= 10:
-            st.error("ni pa eso")
+            st.error(f"Nota: {nota} - Estas desaprobado")
         elif 11 <= nota <= 13:
-            st.warning("para dar pena siquiera")
+            st.warning(f"Nota: {nota} - Estas regular")
         elif 14 <= nota <= 17:
-            st.info("a nada")
+            st.info(f"Nota: {nota} - Estas bueno")
         else:
-            st.success("alomenos ahí, apruebas")
+            st.success(f"Nota: {nota} - Estas excelente")
