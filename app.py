@@ -24,16 +24,32 @@ st.title("Sistema de Calificaciones")
 
 contraseña = st.text_input("Ingresa la contraseña:", type="password")
 
-if contraseña == "ALFARO":
-    st.success("Acceso correcto")
-    nota = st.number_input("Ingresa tu nota (0 a 20):", min_value=0, max_value=20, step=1)
-    
-    if st.button("Verificar"):
-        if nota <= 10:
-            st.error(f"Nota: {nota} - Ni para eso")
-        elif 11 <= nota <= 13:
-            st.warning(f"Nota: {nota} - para dar pena siquiera")
-        elif 14 <= nota <= 17:
-            st.info(f"Nota: {nota} - peor es nada ")
-        else:
-            st.success(f"Nota: {nota} - alomenos ahi apruebas")
+if st.button("Verificar"):
+
+    if contraseña == "ALFARO":
+
+        st.success("Acceso correcto")
+
+        nota = st.number_input(
+            "Ingresa tu nota (0 a 20):",
+            min_value=0,
+            max_value=20,
+            step=1
+        )
+
+        if st.button("Verificar nota"):
+
+            if nota <= 10:
+                st.error(f"Nota: {nota} - Ni para eso")
+
+            elif 11 <= nota <= 13:
+                st.warning(f"Nota: {nota} - Para dar pena siquiera")
+
+            elif 14 <= nota <= 17:
+                st.info(f"Nota: {nota} - Peor es nada")
+
+            else:
+                st.success(f"Nota: {nota} - Al menos ahí apruebas")
+
+    else:
+        st.error("❌ Contraseña incorrecta, vuelve a ingresar")
